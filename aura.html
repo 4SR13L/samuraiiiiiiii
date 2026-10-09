@@ -1,133 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScribidi</title>
 </head>
 <body>
 <script>
 
-function saudacao() {
-    console.log("Olá, bem-vindo ao curso de JavaScript!");
+function mostrarMensagem() {
+    console.log("Bem-vindo ao estudo de funções em JavaScript!");
 }
+mostrarMensagem();
 
-saudacao();
-
-
-
-
-
-function soma() {
-    let pedra = 4; 
-    let arroz = 6; 
-    return pedra + arroz; 
+function somaSimples() {
+    let a = 4;
+    let b = 6;
+    console.log("Soma:", a + b);
 }
+somaSimples();
 
-let resultado = soma(); 
-console.log("Resultado da soma:", resultado);
-
-
-
-
-
-
-function    ImprimirNome() {
-    let nome = ("gerard way"); 
+function imprimirNome() {
+    let nome = "Gerard Way";
     console.log(nome);
 }
+imprimirNome();
 
-ImprimirNome();
-
-
-
-
-
-
-
-function quadrado() {
-    let pedra = 4;
-    return pedra * pedra;
+function quadrado(numero) {
+    return numero * numero;
 }
-let vasco = quadrado
-console.log(vasco());
+console.log("Quadrado de 4:", quadrado(4));
 
-
-
-
-
-
-
-
-function ConcatenaPalavras() {
-    let F = 68;
-    return (F-32)/1.8 ;
+function converterParaCelsius(fahrenheit) {
+    return (fahrenheit - 32) / 1.8;
 }
-let celsius = converterParaCelsius
-console.log(celsius());
+console.log("68°F em Celsius:", converterParaCelsius(68));
 
+function concatenaPalavras(palavra1, palavra2) {
+    return palavra1 + " " + palavra2;
+}
+console.log(concatenaPalavras("Aprender", "JavaScript é divertido"));
 
+function calcularMedia(n1, n2, n3) {
+    return (n1 + n2 + n3) / 3;
+}
+console.log("Média:", calcularMedia(7, 8, 9));
 
+function desconto(valor, percentual) {
+    return valor - (valor * percentual / 100);
+}
+console.log("Valor final:", desconto(200, 10));
 
-// ==========================================
-// 4. FUNÇÕES ANÔNIMAS
-// ==========================================
+function saudacaoPersonalizada(nome) {
+    console.log(`Olá, ${nome}! Seja bem-vindo.`);
+}
+saudacaoPersonalizada("Maria");
 
-const dividir = function(x, y) {
-    return x / y;
+const multiplicar = function (a, b) {
+    return a * b;
 };
+console.log("Multiplicação:", multiplicar(3, 5));
 
-// Explicação:
-// - const dividir = ... → Cria uma constante chamada dividir (não pode ser reatribuída)[cite: 1].
-// - function(x, y) { ... } → Função anônima que recebe x e y e retorna a divisão[cite: 1].
-// - O ponto e vírgula (;) no final é necessário porque estamos fazendo uma atribuição[cite: 1].
-console.log(dividir(10, 2)); // Exibe 5[cite: 1]
+const dividir = function (a, b) {
+    return a / b;
+};
+console.log("Divisão:", dividir(10, 2));
 
+const dobro = (numero) => numero * 2;
+console.log("Dobro de 7:", dobro(7));
 
-// ==========================================
-// 5. ARROW FUNCTIONS
-// ==========================================
-// Forma mais curta de escrever funções no JavaScript moderno (ES6+)[cite: 1].
-const subtrair = (a, b) => a - b;
+const ehPar = (numero) => numero % 2 === 0;
+console.log("8 é par?", ehPar(8));
+console.log("7 é par?", ehPar(7));
 
-// - const → Cria uma variável constante chamada "subtrair"[cite: 1].
-// - (a, b) → Parâmetros da função[cite: 1].
-// - => → Indica que estamos usando uma arrow function[cite: 1].
-// - a - b → Corpo da função e retorno implícito (não precisa escrever "return")[cite: 1].
-
-console.log(subtrair(10, 3)); // Exibe 7[cite: 1]
-
-
-// ==========================================
-// 6. FUNÇÕES DENTRO DE FUNÇÕES (NESTED)
-// ==========================================
-// Também chamadas de funções aninhadas[cite: 1]. 
-// Uma função interna só pode ser chamada dentro da função externa[cite: 1].
 function calculadora(a, b) {
-    
-    // Função interna 'soma', só pode ser usada dentro de 'calculadora'[cite: 1]
     function soma(x, y) {
         return x + y;
     }
-    
-    // Função interna 'multiplicar', só pode ser usada dentro de 'calculadora'[cite: 1]
-    function multiplicar(x, y) {
+    function subtrair(x, y) {
+        return x - y;
+    }
+    console.log("Soma:", soma(a, b));
+    console.log("Subtração:", subtrair(a, b));
+}
+calculadora(10, 4);
+
+function operacoesAvancadas(a, b) {
+    function produto(x, y) {
         return x * y;
     }
-    
-    // Chama a função interna 'soma' passando os parâmetros recebidos por 'calculadora'[cite: 1]
-    console.log("Soma:", soma(a, b));
-    
-    // Chama a função interna 'multiplicar' passando os mesmos parâmetros[cite: 1]
-    console.log("Multiplicação:", multiplicar(a, b));
+    function potencia(x, y) {
+        return x ** y;
+    }
+    return {
+        produto: produto(a, b),
+        potencia: potencia(a, b)
+    };
 }
+console.log(operacoesAvancadas(2, 5));
 
-// Chama a função principal 'calculadora', passando a=4 e b=2[cite: 1]
-calculadora(4, 2); 
-// Saída esperada no console:
-// Soma: 6
-// Multiplicação: 8
 </script>
-
 </body>
 </html>
